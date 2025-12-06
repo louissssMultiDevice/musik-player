@@ -20,7 +20,7 @@ const io = new Server(server, {
 
 // Middleware
 app.use(cors({
-  origin: 'http://localhost:3000',
+  origin: 'https://musikku.privhandi.my.id',
   credentials: true
 }));
 app.use(express.json());
@@ -30,7 +30,7 @@ app.use(passport.initialize());
 passport.use(new GoogleStrategy({
   clientID: process.env.GOOGLE_CLIENT_ID,
   clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-  callbackURL: "http://musikku.privhandi.my.id/api/auth/google/callback"
+  callbackURL: "https://musikku.privhandi.my.id/api/auth/google/callback"
 },
 async (accessToken, refreshToken, profile, done) => {
   try {
@@ -70,7 +70,7 @@ app.get('/api/auth/google/callback',
       { expiresIn: '7d' }
     );
     
-    res.redirect(`http://musikku.privhandi.my.id/auth-success?token=${token}`);
+    res.redirect(`https://musikku.privhandi.my.id/auth-success?token=${token}`);
   }
 );
 
