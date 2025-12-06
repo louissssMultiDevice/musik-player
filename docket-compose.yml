@@ -1,0 +1,54 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_USER: soundscape
+      POSTGRES_PASSWORD: soundscape123
+      POSTGRES_DB: soundscape
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - soundscape-network
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    networks:
+      - soundscape-network
+
+  server:
+    build: ./server
+    ports:
+      - "5000:5000"
+    environment:
+      DATABASE_URL: "postgresql://soundscape:soundscape123@postgres:5432/soundscape"
+      JWT_SECRET: "your-super-secret-jwt-key-change-in-production"
+      GOOGLE_CLIENT_ID: "732926475897-bep4e4qg150gvtqfrtbjfda34fc2cdtb.apps.googleusercontent.com"
+      GOOGLE_CLIENT_SECRET: "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"
+      CLOUDINARY_URL: "${CLOUDINARY_URL}"
+    depends_on:
+      - postgres
+      - redis
+    networks:
+      - soundscape-network
+
+  client:
+    build: ./client
+    ports:
+      - "3000:3000"
+    depends_on:
+      - server
+    networks:
+      - soundscape-network
+
+volumes:
+  postgres_data:
+
+networks:
+  soundscape-network:
+    driver: bridge
