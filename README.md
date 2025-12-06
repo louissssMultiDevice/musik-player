@@ -59,9 +59,10 @@ cd soundscape
 cp .env.example .env
 
 docker-compose up -d
+```
 
-Metode 2 — Manual
-
+## Metode 2 — Manual
+```
 Backend
 
 cd server
@@ -75,12 +76,12 @@ Frontend
 cd client
 npm install
 npm run dev
-
+```
 
 ---
 
-⚙️ Konfigurasi Environment
-
+## ⚙️ Konfigurasi Environment
+```
 # Server
 PORT=5000
 JWT_SECRET=your-secret-key
@@ -100,12 +101,12 @@ CLOUDINARY_API_SECRET=your-secret
 
 # Frontend
 VITE_API_URL=http://localhost:5000/api
-
+```
 
 ---
 
-📁 Struktur Project
-
+## 📁 Struktur Project
+```
 soundscape/
 ├── client/
 │   ├── components/
@@ -124,12 +125,12 @@ soundscape/
 ├── docker-compose.yml
 ├── .env.example
 └── README.md
-
+```
 
 ---
 
-📡 API Endpoints
-
+## 📡 API Endpoints
+```
 Auth
 
 GET /api/auth/google
@@ -149,12 +150,12 @@ Songs
 
 POST /api/playlists/:id/songs
 DELETE /api/playlists/:id/songs/:songId
-
+```
 
 ---
 
-🎯 Fitur Lanjutan
-
+## 🎯 Fitur Lanjutan
+```
 Real-time Listening
 
 socket.on('currently-playing', (data) => {
@@ -166,21 +167,21 @@ Audio Visualizer
 const analyzer = audioContext.createAnalyser();
 analyzer.fftSize = 2048;
 const dataArray = new Uint8Array(analyzer.frequencyBinCount);
-
+```
 
 ---
 
-🧪 Testing
-
+## 🧪 Testing
+```
 cd server && npm test
 cd client && npm test
 npm run cypress:open
-
+```
 
 ---
 
-🚢 Deployment
-
+## 🚢 Deployment
+```
 VPS (Docker)
 
 git clone https://github.com/yourusername/soundscape.git
@@ -191,12 +192,12 @@ Vercel (Frontend)
 
 cd client
 vercel --prod
-
+```
 
 ---
 
-📄 Changelog
-
+## 📄 Changelog
+```
 v1.0.0
 
 Google OAuth
@@ -221,34 +222,31 @@ Lyric sync
 AI recommendation engine
 
 Collaborative playlist editing
-
-
-
----
-
-👥 Credit
-
-Developer & Maintainer : ndiidepzX  
-Frontend Lead         : ndiidepzX  
-Backend Lead          : ndiidepzX  
-Designer              : ndiidepzX
+```
 
 
 ---
+# 🎶 SoundScape — Credits & Links
 
-🔗 Link Penting
+## 👥 Credit
 
-Demo Live
-Dokumentasi
-API Reference
-Roadmap
-
+- Developer & Maintainer : ndiidepzX
+- Frontend Lead          : ndiidepzX
+- Backend Lead           : ndiidepzX
+- Designer               : ndiidepzX
 
 ---
 
-❤️ Terima Kasih
+## 🔗 Link Penting
+[▶️ Demo Live](#)  
+[📘 Dokumentasi](#)  
+[🧩 API Reference](#)  
+[🛣️ Roadmap](#)
 
-SoundScape dibuat untuk semua pecinta musik yang percaya bahwa playlist adalah sebuah cerita, bukan sekadar daftar lagu.
+---
+
+## ❤️ Terima Kasih
+SoundScape dibuat untuk semua pecinta musik yang percaya bahwa playlist adalah sebuah cerita, bukan sekadar daftar lagu.  
 Tetap dengarkan. Tetap berbagi. Tetap hidup.
 
-🎧 Keep Listening — Keep Sharing 🎧
+### 🎧 Keep Listening — Keep Sharing 🎧
